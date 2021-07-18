@@ -578,18 +578,13 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
 $ cd ..
+user@DESKTOP-0FDBJ4P MINGW64 ~ (master)
+$ mkdir GitClone
 
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo (master)
-$ mkdir cloneRepo
+user@DESKTOP-0FDBJ4P MINGW64 ~ (master)
+$ cd GitClone/
 
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo (master)
-$ cd cloneRepo/
-
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
-$ git init
-Initialized empty Git repository in C:/Users/user/cloneOfRepo/cloneRepo/.git/
-
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone (master)
 $ git clone https://github.com/SushmaPNekar/TaskGit.git
 Cloning into 'TaskGit'...
 remote: Enumerating objects: 17, done.
@@ -599,17 +594,107 @@ remote: Total 17 (delta 1), reused 17 (delta 1), pack-reused 0
 Receiving objects: 100% (17/17), done.
 Resolving deltas: 100% (1/1), done.
 
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone (master)
 $ ls
 TaskGit/
 
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
-$
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone (master)
+$ cd TaskGit/
 
-user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ ls
+File-1.txt  File-2.txt  File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
 $ notepad Solution.txt
 
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
 
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Solution.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git add Solution.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git commit "added Solution.txt file"
+error: pathspec 'added Solution.txt file' did not match any file(s) known to git
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git commit -m"added Solution.txt file"
+[master 435b1d3] added Solution.txt file
+ 1 file changed, 619 insertions(+)
+ create mode 100644 Solution.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git log
+commit 435b1d385f1aa9ad56e4030338dfed07cf12f2c6 (HEAD -> master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 17:03:17 2021 -0700
+
+    added Solution.txt file
+
+commit afd327b5f3f5ced71d78f9bf7a77518e7bc8fd27 (origin/master, origin/HEAD)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:06:59 2021 -0700
+
+    added new line in File.txt
+
+commit 988529abe0520cf93f0dbaf1231556f15ebeb599
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:04:31 2021 -0700
+
+    Commited File-2 and File-3 in Test
+
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 2.38 KiB | 2.38 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/SushmaPNekar/TaskGit.git
+   afd327b..435b1d3  master -> master
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/GitClone/TaskGit (master)
+$
 
 
 
