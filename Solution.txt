@@ -1,0 +1,619 @@
+
+user@DESKTOP-0FDBJ4P MINGW64 ~ (master)
+$ mkdir TextGit
+
+user@DESKTOP-0FDBJ4P MINGW64 ~ (master)
+$ cd TextGit
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ notepad File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ notepad File-2.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ notepad File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ add File-1.txt
+bash: add: command not found
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git init
+Initialized empty Git repository in C:/Users/user/TextGit/.git/
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git add File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   File-1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        File-2.txt
+        File-3.txt
+
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git commit -m "Added File-1.txt"
+[master (root-commit) 29186d3] Added File-1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git log
+commit 29186d34ade2d751888fb5d2388acb08b9670b99 (HEAD -> master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git add File-2
+fatal: pathspec 'File-2' did not match any files
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git add File-2.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git add File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   File-2.txt
+        new file:   File-3.txt
+
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git commit -m "added File-2 and File-3"
+[master d2c5870] added File-2 and File-3
+ 2 files changed, 2 insertions(+)
+ create mode 100644 File-2.txt
+ create mode 100644 File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git log
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (HEAD -> master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git checkout 29186d34ade2d751888fb5d2388acb08b9670b99
+Note: switching to '29186d34ade2d751888fb5d2388acb08b9670b99'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 29186d3 Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit ((29186d3...))
+$ git checkout master
+Previous HEAD position was 29186d3 Added File-1.txt
+Switched to branch 'master'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git branch
+* Dev
+  master
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git add File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git commit -m "Added File-1.txt to Dev"
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git log
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (HEAD -> Dev, master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git checkout master
+Switched to branch 'master'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git checkout Dev
+Switched to branch 'Dev'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ ls
+File-1.txt  File-2.txt  File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ notepad File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git status
+On branch Dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File-1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git add File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git status
+On branch Dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   File-1.txt
+
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git log
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (HEAD -> Dev, master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git commit -m "Commiting File-1.txt in Dev"
+[Dev 25cdc42] Commiting File-1.txt in Dev
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git log
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (HEAD -> Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git checkout master
+Switched to branch 'master'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git log
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (HEAD -> master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git checkout Dev
+Switched to branch 'Dev'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ ls
+File-1.txt  File-2.txt  File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git log
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (HEAD -> Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git branch
+* Dev
+  master
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Dev)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git branch
+  Dev
+* Test
+  master
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ notepad File-2.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ notepad File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File-2.txt
+        modified:   File-3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git add File-2.txt File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git commit -m "Commited File-2 and File-3 in Test"
+[Test 988529a] Commited File-2 and File-3 in Test
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git log
+commit 988529abe0520cf93f0dbaf1231556f15ebeb599 (HEAD -> Test)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:04:31 2021 -0700
+
+    Commited File-2 and File-3 in Test
+
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ notepad File-3
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File-3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git add File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git commit -m "added new line in File.txt"
+[Test afd327b] added new line in File.txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git log
+commit afd327b5f3f5ced71d78f9bf7a77518e7bc8fd27 (HEAD -> Test)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:06:59 2021 -0700
+
+    added new line in File.txt
+
+commit 988529abe0520cf93f0dbaf1231556f15ebeb599
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:04:31 2021 -0700
+
+    Commited File-2 and File-3 in Test
+
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git diff
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git diff File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ ls
+File-1.txt  File-2.txt  File-3.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git log
+commit afd327b5f3f5ced71d78f9bf7a77518e7bc8fd27 (HEAD -> Test)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:06:59 2021 -0700
+
+    added new line in File.txt
+
+commit 988529abe0520cf93f0dbaf1231556f15ebeb599
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:04:31 2021 -0700
+
+    Commited File-2 and File-3 in Test
+
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4 (master)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git diff
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (Test)
+$ git checkout master
+Switched to branch 'master'
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git merge Dev Test
+Updating d2c5870..afd327b
+Fast-forward
+ File-1.txt | 2 +-
+ File-2.txt | 2 +-
+ File-3.txt | 3 ++-
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git log
+commit afd327b5f3f5ced71d78f9bf7a77518e7bc8fd27 (HEAD -> master, Test)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:06:59 2021 -0700
+
+    added new line in File.txt
+
+commit 988529abe0520cf93f0dbaf1231556f15ebeb599
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 15:04:31 2021 -0700
+
+    Commited File-2 and File-3 in Test
+
+commit 25cdc426fbe5037c07a3a13242c4bba10aa0b7c5 (Dev)
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:58:37 2021 -0700
+
+    Commiting File-1.txt in Dev
+
+commit d2c58704566abd3bc71cc7498b77dc3937fddef4
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:45:06 2021 -0700
+
+    added File-2 and File-3
+
+commit 29186d34ade2d751888fb5d2388acb08b9670b99
+Author: SushmaPNekar <sushmapnekar2999@gmail.com>
+Date:   Sun Jul 18 14:43:42 2021 -0700
+
+    Added File-1.txt
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git remote add origin https://github.com/SushmaPNekar/TaskGit.git
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git remote -v
+origin  https://github.com/SushmaPNekar/TaskGit.git (fetch)
+origin  https://github.com/SushmaPNekar/TaskGit.git (push)
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ git push -u origin master
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (17/17), 1.51 KiB | 220.00 KiB/s, done.
+Total 17 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/SushmaPNekar/TaskGit.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/TextGit (master)
+$ cd ..
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo (master)
+$ mkdir cloneRepo
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo (master)
+$ cd cloneRepo/
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+$ git init
+Initialized empty Git repository in C:/Users/user/cloneOfRepo/cloneRepo/.git/
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+$ git clone https://github.com/SushmaPNekar/TaskGit.git
+Cloning into 'TaskGit'...
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 17 (delta 1), reused 17 (delta 1), pack-reused 0
+Receiving objects: 100% (17/17), done.
+Resolving deltas: 100% (1/1), done.
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+$ ls
+TaskGit/
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+$
+
+user@DESKTOP-0FDBJ4P MINGW64 ~/cloneOfRepo/cloneRepo (master)
+$ notepad Solution.txt
+
+
+
+
+
+
+
+
+
